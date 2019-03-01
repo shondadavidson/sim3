@@ -1,0 +1,31 @@
+create table users3 (
+id serial primary key,
+username varchar(20),
+password varchar(20),
+profile_pic text
+);
+
+
+create table posts3 (
+id serial primary key,
+title varchar(45),
+img text,
+content text,
+author_id integer
+);
+
+INSERT INTO users3 (username, password)
+VALUES
+('shonda', 'pass')
+,
+('rob', 'pass');
+
+INSERT INTO posts3 (title, content, author_id)
+VALUES
+('shonda title', 'this is my content', 1)
+,
+('rob title', 'this is my content', 1);
+
+
+
+
