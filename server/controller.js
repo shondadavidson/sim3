@@ -32,11 +32,13 @@ module.exports = {
     },
     searchForPosts:(req, res) => {
         let postSearched = req.query.search
-        let filteredPosts = posts.filter( (post) => {
-        return post.title.includes(postSearched) })
-        res.status(200).send(filteredPosts).catch(err => {
-            res.status(400).send({})
+        const db = req.app.get('db')
+        db.search_post(postSearched).then(resp => {
+            res.status(200).send(resp)
+        }).catch(err => {
+            console.log(err)
         })
+        
     }
 
     
